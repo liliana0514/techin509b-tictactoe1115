@@ -1,4 +1,9 @@
+# This file contains the Command Line Interface (CLI) for
+# the Tic-Tac-Toe game. This is where input and output happens.
+# For core game logic, see logic.py.
 
+
+from logic import Player, Game
 
 if __name__ == "__main__":
     player1_name = input("Enter name for Player 1: ")
