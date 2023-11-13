@@ -23,7 +23,8 @@ if __name__ == "__main__":
         player1 = Player(player1_name, player1_symbol)
 
         player2_name = input("Enter name for Player 2: ")
-        player2_symbol = input("Enter symbol for Player 2 (X or O): ")
+        # Automatically assign the opposite symbol to Player 2
+        player2_symbol = 'X' if player1_symbol.upper() == 'O' else 'O'
         player2 = Player(player2_name, player2_symbol)
 
     else:
