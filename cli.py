@@ -18,7 +18,7 @@ if __name__ == "__main__":
         print("Invalid symbol for Player 1. Exiting.")
         exit()
 
-    player2 = Player("Player 2", player2_symbol)
+    player2 = Player("Bot", player2_symbol)
 
     game_mode = input("Enter game mode (1 for single player, 2 for two players): ")
 
