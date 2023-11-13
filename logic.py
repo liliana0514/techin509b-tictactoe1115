@@ -29,7 +29,7 @@ class Game:
         print()
 
     def start_game(self):
-        self.current_player = self.players[0]  # Set the current player before the game loop
+        self.current_player = self.players[0]
         while True:
             self.print_board()
             row, col = self.current_player.make_move()
