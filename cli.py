@@ -5,6 +5,7 @@
 
 from logic import Player, Game
 
+
 if __name__ == "__main__":
     player1_name = input("Enter name for Player 1: ")
     player1_symbol = input("Enter symbol for Player 1 (X or O): ")
