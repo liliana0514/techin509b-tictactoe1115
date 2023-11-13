@@ -2,7 +2,6 @@
 # or output happens here. The logic in this file
 # should be unit-testable.
 
-import random
 
 class Player:
     def __init__(self, name, symbol):
@@ -10,8 +9,12 @@ class Player:
         self.symbol = symbol
 
     def make_move(self):
-        row = int(input(f"{self.name}, enter row (0-2): "))
-        col = int(input(f"{self.name}, enter col (0-2): "))
+        if self.name == 'Bot':
+            row = random.randint(0, 2)
+            col = random.randint(0, 2)
+        else:
+            row = int(input(f"{self.name}, enter row (0-2): "))
+            col = int(input(f"{self.name}, enter col (0-2): "))
         return row, col
 
 class Game:
