@@ -13,13 +13,10 @@ if __name__ == "__main__":
     player1_symbol = input("Enter symbol for Player 1 (X or O): ")
     player1 = Player(player1_name, player1_symbol)
 
-    if player1_symbol.upper() == 'X':
-        player2 = Player("Bot", 'O')
-    elif player1_symbol.upper() == 'O':
-        player2 = Player("Bot", 'X')
-    else:
-        print("Invalid symbol for Player 1. Exiting.")
-        exit()
+    player2_name = input("Enter name for Player 2: ")
+    # Automatically assign the opposite symbol to Player 2
+    player2_symbol = 'X' if player1_symbol.upper() == 'O' else 'O'
+    player2 = Player(player2_name, player2_symbol)
 
     game_mode = input("Enter game mode (1 for single player, 2 for two players): ")
 
