@@ -72,5 +72,3 @@ class Game:
 
     def announce_winner(self, winner):
         print(f"{winner.name} wins!")
-
-
