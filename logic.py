@@ -10,12 +10,8 @@ class Player:
         self.symbol = symbol
 
     def make_move(self):
-        if self.name == 'Bot':
-            row = random.randint(0, 2)
-            col = random.randint(0, 2)
-        else:
-            row = int(input(f"{self.name}, enter row (0-2): "))
-            col = int(input(f"{self.name}, enter col (0-2): "))
+        row = int(input(f"{self.name}, enter row (0-2): "))
+        col = int(input(f"{self.name}, enter col (0-2): "))
         return row, col
 
 class Game:
@@ -34,15 +30,19 @@ class Game:
         while True:
             self.print_board()
             row, col = self.current_player.make_move()
-            self.make_move(row, col)
+            if self.is_valid_move(row, col):
+                self.make_move(row, col)
+            else:
+                print("Invalid move. Try again.")
+                continue
+
             if self.check_winner() or self.is_board_full():
                 self.print_board()
                 break
             self.switch_player()
 
     def make_move(self, row, col):
-        if self.board[row][col] == ' ':
-            self.board[row][col] = self.current_player.symbol
+        self.board[row][col] = self.current_player.symbol
 
     def switch_player(self):
         self.current_player = self.players[1] if self.current_player == self.players[0] else self.players[0]
@@ -69,6 +69,9 @@ class Game:
 
     def is_board_full(self):
         return all(all(cell != ' ' for cell in row) for row in self.board)
+
+    def is_valid_move(self, row, col):
+        return 0 <= row <= 2 and 0 <= col <= 2 and self.board[row][col] == ' '
 
     def announce_winner(self, winner):
         print(f"{winner.name} wins!")
