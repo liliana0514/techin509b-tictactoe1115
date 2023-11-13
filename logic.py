@@ -14,17 +14,8 @@ class Player:
             row = random.randint(0, 2)
             col = random.randint(0, 2)
         else:
-            while True:
-                try:
-                    row = int(input(f"{self.name}, enter row (0-2): "))
-                    col = int(input(f"{self.name}, enter col (0-2): "))
-                    if 0 <= row <= 2 and 0 <= col <= 2 and self.board[row][col] == ' ':
-                        break
-                    else:
-                        print("Invalid move. Try again.")
-                except ValueError:
-                    print("Invalid input. Enter a number.")
-
+            row = int(input(f"{self.name}, enter row (0-2): "))
+            col = int(input(f"{self.name}, enter col (0-2): "))
         return row, col
 
 class Game:
@@ -52,8 +43,6 @@ class Game:
     def make_move(self, row, col):
         if self.board[row][col] == ' ':
             self.board[row][col] = self.current_player.symbol
-        else:
-            print("Invalid move. The position is already occupied. Try again.")
 
     def switch_player(self):
         self.current_player = self.players[1] if self.current_player == self.players[0] else self.players[0]
