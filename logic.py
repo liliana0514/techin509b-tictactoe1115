@@ -30,14 +30,26 @@ class Game:
 
     def start_game(self):
         self.current_player = self.players[0]
+        invalid_move = False  # Initialize the invalid_move flag
         while True:
             self.print_board()
+
+            # Check if the previous move was invalid and print a message
+            if invalid_move:
+                print("Invalid move. Try again.")
+                invalid_move = False  # Reset the invalid_move flag
             row, col = self.current_player.make_move()
+
+            # Check if the move is valid
+            # Check if the move is valid
             if self.is_valid_move(row, col):
                 self.make_move(row, col)
+                invalid_move = False  # Reset the invalid_move flag
             else:
-                print("Invalid move. Try again.")
+                # Set the invalid_move flag to True
+                invalid_move = True
                 continue
+
 
             if self.check_winner() or self.is_board_full():
                 self.print_board()

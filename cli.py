@@ -5,8 +5,6 @@
 
 from logic import Player, Game
 
-import random
-
 if __name__ == "__main__":
     game_mode = input("Enter game mode (1 for single player, 2 for two players): ")
 
@@ -33,3 +31,4 @@ if __name__ == "__main__":
 
     game = Game(player1, player2)
     game.start_game()
+
