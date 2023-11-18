@@ -31,4 +31,3 @@ if __name__ == "__main__":
 
     game = Game(player1, player2)
     game.start_game()
-
