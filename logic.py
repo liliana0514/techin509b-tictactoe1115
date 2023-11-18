@@ -78,5 +78,4 @@ class Game:
 
     def announce_winner(self, winner):
         print(f"{winner.name} wins!")
-    def get_board(self):
-        return [row.copy() for row in self.board]
+
